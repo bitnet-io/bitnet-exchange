@@ -9,7 +9,9 @@ about bitnet-exchange
 ```
 BASED OFF OF Bisq 
  QR code deposit is broken right now
- adjusted "trade offer" deposit wallet to -> legacy addresses instead of segwit addresses to support the api/tx broadcast function to avoid rpc errors (bitnet doesnt support segwit addresses to send or receive)
+ adjusted "trade offer" deposit wallet to -> legacy addresses instead of segwit
+ addresses to support the api/tx broadcast function to avoid rpc errors (bitnet 
+ doesnt support segwit addresses to send or receive)
 ```
 
 # building the project with java 11 openjdk
