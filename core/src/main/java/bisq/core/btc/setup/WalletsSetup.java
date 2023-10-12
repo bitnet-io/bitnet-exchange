@@ -49,18 +49,9 @@ import org.bitcoinj.core.PeerAddress;
 import org.bitcoinj.core.PeerGroup;
 import org.bitcoinj.core.RejectMessage;
 import org.bitcoinj.core.listeners.DownloadProgressTracker;
-
 import org.bitcoinj.params.MainNetParams;
 import org.bitcoinj.params.RegTestParams;
 import org.bitcoinj.params.TestNet3Params;
-
-
-//import org.libdohj.params.DogecoinMainNetParams;
-//import org.libdohj.params.DogecoinRegTestParams;
-//import org.libdohj.params.DogecoinTestNet3Params;
-
-
-
 import org.bitcoinj.utils.Threading;
 import org.bitcoinj.wallet.DeterministicSeed;
 import org.bitcoinj.wallet.Wallet;
@@ -283,9 +274,9 @@ public class WalletsSetup {
             // in the checkpoints file and then download the rest from the network. It makes things much faster.
             // Checkpoint files are made using the BuildCheckpoints tool and usually we have to download the
             // last months worth or more (takes a few seconds).
-            checkpointsPath = "";
+            checkpointsPath = "/wallet/checkpoints.txt";
         } else if (params.equals(TestNet3Params.get())) {
-            checkpointsPath = "";
+            checkpointsPath = "/wallet/checkpoints.testnet.txt";
         }
         if (checkpointsPath != null) {
             walletConfig.setCheckpoints(getClass().getResourceAsStream(checkpointsPath));

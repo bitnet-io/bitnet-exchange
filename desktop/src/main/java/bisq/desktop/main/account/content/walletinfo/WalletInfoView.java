@@ -94,19 +94,19 @@ public class WalletInfoView extends ActivatableView<GridPane, Void> {
         addTitledGroupBg(root, gridRow, 3, Res.get("account.menu.walletInfo.balance.headLine"));
         addMultilineLabel(root, gridRow, Res.get("account.menu.walletInfo.balance.info"), Layout.FIRST_ROW_DISTANCE, Double.MAX_VALUE);
         btcTextField = addTopLabelTextField(root, ++gridRow, "BIT", -Layout.FLOATING_LABEL_DISTANCE).second;
-//        bsqTextField = addTopLabelTextField(root, ++gridRow, "BSQ", -Layout.FLOATING_LABEL_DISTANCE).second;
+        bsqTextField = addTopLabelTextField(root, ++gridRow, "BSQ", -Layout.FLOATING_LABEL_DISTANCE).second;
 
         addTitledGroupBg(root, ++gridRow, 4, Res.get("account.menu.walletInfo.xpub.headLine"), Layout.GROUP_DISTANCE);
         addXpubKeys(btcWalletService, "BIT", gridRow, Layout.FIRST_ROW_AND_GROUP_DISTANCE);
         ++gridRow; // update gridRow
-  //      addXpubKeys(bsqWalletService, "BSQ", ++gridRow, -Layout.FLOATING_LABEL_DISTANCE);
-    //    ++gridRow; // update gridRow
+        addXpubKeys(bsqWalletService, "BSQ", ++gridRow, -Layout.FLOATING_LABEL_DISTANCE);
+        ++gridRow; // update gridRow
 
         addTitledGroupBg(root, ++gridRow, 4, Res.get("account.menu.walletInfo.path.headLine"), Layout.GROUP_DISTANCE);
         addMultilineLabel(root, gridRow, Res.get("account.menu.walletInfo.path.info"), Layout.FIRST_ROW_AND_GROUP_DISTANCE, Double.MAX_VALUE);
         addTopLabelTextField(root, ++gridRow, Res.get("account.menu.walletInfo.walletSelector", "BIT", "legacy"), "44'/0'/0'", -Layout.FLOATING_LABEL_DISTANCE);
-      //  addTopLabelTextField(root, ++gridRow, Res.get("account.menu.walletInfo.walletSelector", "BIT", "segwit"), "44'/0'/1'", -Layout.FLOATING_LABEL_DISTANCE);
-      //  addTopLabelTextField(root, ++gridRow, Res.get("account.menu.walletInfo.walletSelector", "BSQ", ""), "44'/142'/0'", -Layout.FLOATING_LABEL_DISTANCE);
+        addTopLabelTextField(root, ++gridRow, Res.get("account.menu.walletInfo.walletSelector", "BIT", "segwit"), "44'/0'/1'", -Layout.FLOATING_LABEL_DISTANCE);
+        addTopLabelTextField(root, ++gridRow, Res.get("account.menu.walletInfo.walletSelector", "BSQ", ""), "44'/142'/0'", -Layout.FLOATING_LABEL_DISTANCE);
 
         openDetailsButton = addButtonAfterGroup(root, ++gridRow, Res.get("account.menu.walletInfo.openDetails"));
 
@@ -116,23 +116,21 @@ public class WalletInfoView extends ActivatableView<GridPane, Void> {
                 updateBalances(btcWalletService);
             }
         };
-  //      bsqWalletBalanceListener = new BalanceListener() {
-    //        @Override
-      //      public void onBalanceChanged(Coin balanceAsCoin, Transaction tx) {
-//                updateBalances(bsqWalletService);
-//            }
- //       };
-
-
+        bsqWalletBalanceListener = new BalanceListener() {
+            @Override
+            public void onBalanceChanged(Coin balanceAsCoin, Transaction tx) {
+                updateBalances(bsqWalletService);
+            }
+        };
     }
 
 
     @Override
     protected void activate() {
         btcWalletService.addBalanceListener(btcWalletBalanceListener);
-    //    bsqWalletService.addBalanceListener(bsqWalletBalanceListener);
+        bsqWalletService.addBalanceListener(bsqWalletBalanceListener);
         updateBalances(btcWalletService);
-  //      updateBalances(bsqWalletService);
+        updateBalances(bsqWalletService);
 
         openDetailsButton.setOnAction(e -> {
             if (walletsManager.areWalletsAvailable()) {
@@ -146,7 +144,7 @@ public class WalletInfoView extends ActivatableView<GridPane, Void> {
     @Override
     protected void deactivate() {
         btcWalletService.removeBalanceListener(btcWalletBalanceListener);
-      //  bsqWalletService.removeBalanceListener(bsqWalletBalanceListener);
+        bsqWalletService.removeBalanceListener(bsqWalletBalanceListener);
         openDetailsButton.setOnAction(null);
     }
 
@@ -155,7 +153,7 @@ public class WalletInfoView extends ActivatableView<GridPane, Void> {
         double topDist = top;
         for (DeterministicKeyChain chain : walletService.getWallet().getActiveKeyChains()) {
             Script.ScriptType outputScriptType = chain.getOutputScriptType();
-            String type = outputScriptType == Script.ScriptType.P2PKH ? "legacy" : "legacy" ;
+            String type = outputScriptType == Script.ScriptType.P2WPKH ? "segwit" : "legacy";
             String key = chain.getWatchingKey().serializePubB58(Config.baseCurrencyNetworkParameters(), outputScriptType);
             addTopLabelTextField(root, row,
                     Res.get("account.menu.walletInfo.walletSelector", currency, type),
@@ -169,7 +167,7 @@ public class WalletInfoView extends ActivatableView<GridPane, Void> {
         if (walletService instanceof BtcWalletService) {
             btcTextField.setText(btcFormatter.formatCoinWithCode(walletService.getBalance(ESTIMATED_SPENDABLE)));
         } else {
-//            bsqTextField.setText(bsqFormatter.formatCoinWithCode(walletService.getBalance(ESTIMATED_SPENDABLE)));
+            bsqTextField.setText(bsqFormatter.formatCoinWithCode(walletService.getBalance(ESTIMATED_SPENDABLE)));
         }
     }
 

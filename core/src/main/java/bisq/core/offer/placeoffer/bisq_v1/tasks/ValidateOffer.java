@@ -45,9 +45,9 @@ public class ValidateOffer extends Task<PlaceOfferModel> {
             // Coins
             checkCoinNotNullOrZero(offer.getAmount(), "Amount");
             checkCoinNotNullOrZero(offer.getMinAmount(), "MinAmount");
-   //         checkCoinNotNullOrZero(offer.getMakerFee(), "MakerFee");
-     //       checkCoinNotNullOrZero(offer.getBuyerSecurityDeposit(), "buyerSecurityDeposit");
-       //     checkCoinNotNullOrZero(offer.getSellerSecurityDeposit(), "sellerSecurityDeposit");
+            checkCoinNotNullOrZero(offer.getMakerFee(), "MakerFee");
+            checkCoinNotNullOrZero(offer.getBuyerSecurityDeposit(), "buyerSecurityDeposit");
+            checkCoinNotNullOrZero(offer.getSellerSecurityDeposit(), "sellerSecurityDeposit");
             checkCoinNotNullOrZero(offer.getTxFee(), "txFee");
             checkCoinNotNullOrZero(offer.getMaxTradeLimit(), "MaxTradeLimit");
 
@@ -85,7 +85,7 @@ public class ValidateOffer extends Task<PlaceOfferModel> {
             checkNotNull(offer.getMinAmount(), "MinAmount is null");
             checkNotNull(offer.getPrice(), "Price is null");
             checkNotNull(offer.getTxFee(), "txFee is null");
-           // checkNotNull(offer.getMakerFee(), "MakerFee is null");
+            checkNotNull(offer.getMakerFee(), "MakerFee is null");
             checkNotNull(offer.getVersionNr(), "VersionNr is null");
             checkArgument(offer.getMaxTradePeriod() > 0,
                     "maxTradePeriod must be positive. maxTradePeriod=" + offer.getMaxTradePeriod());

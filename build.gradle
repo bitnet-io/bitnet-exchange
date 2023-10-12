@@ -38,7 +38,10 @@ configure(subprojects) {
     //bitcoinjVersion = 'bccff7a'
         
 	//exchangej    
-	bitcoinjVersion = 'main-SNAPSHOT'
+	//bitcoinjVersion = 'main-SNAPSHOT'
+
+	//exchangej    
+	bitcoinjVersion = '9f560c7'
 
 
         codecVersion = '1.13'

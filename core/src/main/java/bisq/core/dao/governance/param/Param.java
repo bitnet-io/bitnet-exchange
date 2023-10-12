@@ -49,21 +49,21 @@ public enum Param {
     UNDEFINED("N/A", ParamType.UNDEFINED),
 
     // Fee in BTC for a 1 BTC trade. 0.001 is 0.1%. @5000 USD/BTC price 0.1% fee is 5 USD.
-    DEFAULT_MAKER_FEE_BTC("0.000", ParamType.BTC, 5, 5),
-    DEFAULT_TAKER_FEE_BTC("0.000", ParamType.BTC, 5, 5),       // 0.2% of trade amount
-    MIN_MAKER_FEE_BTC("0.0000", ParamType.BTC, 5, 5),         // 0.005% of trade amount
-    MIN_TAKER_FEE_BTC("0.0000", ParamType.BTC, 5, 5),
+    DEFAULT_MAKER_FEE_BTC("0.0001", ParamType.BTC, 5, 5),
+    DEFAULT_TAKER_FEE_BTC("0.0001", ParamType.BTC, 5, 5),       // 0.2% of trade amount
+    MIN_MAKER_FEE_BTC("0.00001", ParamType.BTC, 5, 5),         // 0.005% of trade amount
+    MIN_TAKER_FEE_BTC("0.00001", ParamType.BTC, 5, 5),
 
     // Fee in BSQ satoshis for a 1 BTC trade. 100 satoshis = 1 BSQ
     // If 1 BTS is 1 USD the fee @5000 USD/BTC is 0.5 USD which is 10% of the BTC fee of 5 USD.
     // Might need adjustment if BSQ/BTC rate changes.
-    DEFAULT_MAKER_FEE_BSQ("0.0", ParamType.BSQ, 5, 5),     // ~ 0.01% of trade amount
-    DEFAULT_TAKER_FEE_BSQ("0.0", ParamType.BSQ, 5, 5),
+    DEFAULT_MAKER_FEE_BSQ("0.001", ParamType.BSQ, 5, 5),     // ~ 0.01% of trade amount
+    DEFAULT_TAKER_FEE_BSQ("0.001", ParamType.BSQ, 5, 5),
     // Min fee is the  smallest fee allowed for a trade. If the default fee would be less than min fee the
     // min fee is used instead.
     // 0.03 BSQ (3 satoshis) for a 1 BTC trade. 0.05 USD if 1 BSQ = 1 USD, 10 % of the BTC fee
-    MIN_MAKER_FEE_BSQ("0.00", ParamType.BSQ, 5, 5),           // 0.0003%.
-    MIN_TAKER_FEE_BSQ("0.00", ParamType.BSQ, 5, 5),
+    MIN_MAKER_FEE_BSQ("0.001", ParamType.BSQ, 5, 5),           // 0.0003%.
+    MIN_TAKER_FEE_BSQ("0.001", ParamType.BSQ, 5, 5),
 
     // Fees proposal/voting. Atm we don't use diff. fees for diff. proposal types
     // See: https://github.com/bisq-network/proposals/issues/46
@@ -118,7 +118,7 @@ public enum Param {
     ASSET_MIN_VOLUME("0.01", ParamType.BTC, 10, 10),
 
     LOCK_TIME_TRADE_PAYOUT("4320", ParamType.BLOCK), // 30 days, can be disabled by setting to 0
-    ARBITRATOR_FEE("0", ParamType.PERCENT),  // % of trade. For new trade protocol. Arbitration will become optional and we can apply a fee to it. Initially we start with no fee.
+    ARBITRATOR_FEE("0.01", ParamType.PERCENT),  // % of trade. For new trade protocol. Arbitration will become optional and we can apply a fee to it. Initially we start with no fee.
     MAX_TRADE_LIMIT("100000000", ParamType.BTC, 2, 2), // max trade limit for lowest risk payment method. Others will get derived from that.
 
     // The base factor to multiply the bonded role amount. E.g. If Twitter admin has 20 as amount and BONDED_ROLE_FACTOR is 1000 we get 20000 BSQ as required bond.
