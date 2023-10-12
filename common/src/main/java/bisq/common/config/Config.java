@@ -412,7 +412,7 @@ public class Config {
                         .withRequiredArg()
                         .withValuesSeparatedBy(',')
                         .describedAs("host:port")
-			.defaultsTo("rxdkppp3vicnbgqt.onion:8002", "5l3amwlyfvf6bcfxpjihmkeaolr7qqduk6h7wlkphoixzohaaloxg7yd.onion:8000","wizseedscybbttk4bmb2lzvbuk2jtect37lcpva4l3twktmkzemwbead.onion:8000");
+			.defaultsTo("5l3amwlyfvf6bcfxpjihmkeaolr7qqduk6h7wlkphoixzohaaloxg7yd.onion:8000");
 //			.defaultsTo("5l3amwlyfvf6bcfxpjihmkeaolr7qqduk6h7wlkphoixzohaaloxg7yd.onion:8000");
 
 
