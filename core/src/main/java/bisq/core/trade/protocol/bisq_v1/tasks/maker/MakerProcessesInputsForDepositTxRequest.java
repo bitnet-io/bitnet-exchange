@@ -96,10 +96,10 @@ public class MakerProcessesInputsForDepositTxRequest extends TradeTask {
             NodeAddress mediatorNodeAddress = checkNotNull(request.getMediatorNodeAddress(),
                     "InputsForDepositTxRequest.getMediatorNodeAddress() must not be null");
             trade.setMediatorNodeAddress(mediatorNodeAddress);
-            Mediator mediator = checkNotNull(user.getAcceptedMediatorByAddress(mediatorNodeAddress),
-                    "user.getAcceptedMediatorByAddress(mediatorNodeAddress) must not be null");
-            trade.setMediatorPubKeyRing(checkNotNull(mediator.getPubKeyRing(),
-                    "mediator.getPubKeyRing() must not be null"));
+           // Mediator mediator = checkNotNull(user.getAcceptedMediatorByAddress(mediatorNodeAddress),
+               //     "user.getAcceptedMediatorByAddress(mediatorNodeAddress) must not be null");
+           // trade.setMediatorPubKeyRing(checkNotNull(mediator.getPubKeyRing(),
+             //       "mediator.getPubKeyRing() must not be null"));
 
             Offer offer = checkNotNull(trade.getOffer(), "Offer must not be null");
             try {

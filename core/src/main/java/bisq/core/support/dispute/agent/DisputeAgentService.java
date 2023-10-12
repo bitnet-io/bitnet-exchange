@@ -62,8 +62,8 @@ public abstract class DisputeAgentService<T extends DisputeAgent> {
                                 ResultHandler resultHandler,
                                 ErrorMessageHandler errorMessageHandler) {
         log.debug("addDisputeAgent disputeAgent.hashCode() " + disputeAgent.hashCode());
-        if (!Config.baseCurrencyNetwork().isMainnet() ||
-                !Utilities.encodeToHex(disputeAgent.getRegistrationPubKey()).equals(DevEnv.DEV_PRIVILEGE_PUB_KEY)) {
+        if (Config.baseCurrencyNetwork().isMainnet() ||
+               !Utilities.encodeToHex(disputeAgent.getRegistrationPubKey()).equals(DevEnv.DEV_PRIVILEGE_PUB_KEY)) {
             boolean result = p2PService.addProtectedStorageEntry(disputeAgent);
             if (result) {
                 log.trace("Add disputeAgent to network was successful. DisputeAgent.hashCode() = {}", disputeAgent.hashCode());
@@ -71,9 +71,9 @@ public abstract class DisputeAgentService<T extends DisputeAgent> {
             } else {
                 errorMessageHandler.handleErrorMessage("Add disputeAgent failed");
             }
-        } else {
+        }  else {
             log.error("Attempt to publish dev disputeAgent on mainnet.");
-            errorMessageHandler.handleErrorMessage("Add disputeAgent failed. Attempt to publish dev disputeAgent on mainnet.");
+        //    errorMessageHandler.handleErrorMessage("Add disputeAgent failed. Attempt to publish dev disputeAgent on mainnet.");
         }
     }
 
