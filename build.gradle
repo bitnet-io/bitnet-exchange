@@ -35,7 +35,11 @@ configure(subprojects) {
         //bitcoinjVersion = '42bbae9'
    
     //lastknownworking bitcoinjVersion = '16535a1'
-    bitcoinjVersion = 'bccff7a'
+    //bitcoinjVersion = 'bccff7a'
+        
+	//exchangej    
+	bitcoinjVersion = 'main-SNAPSHOT'
+
 
         codecVersion = '1.13'
         cowwocVersion = '1.2'
@@ -223,9 +227,9 @@ configure(project(':proto')) {
 configure(project(':assets')) {
     dependencies {
 //        implementation 'com.github.c4pt000:libdohj:c0f2801'
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')
@@ -257,9 +261,9 @@ configure(project(':common')) {
         implementation "ch.qos.logback:logback-classic:$logbackVersion"
         implementation "ch.qos.logback:logback-core:$logbackVersion"
 
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')
@@ -315,9 +319,9 @@ configure(project(':p2p')) {
             exclude(module: 'slf4j-api')
         }
 
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')
@@ -395,9 +399,9 @@ configure(project(':core')) {
             exclude(module: 'slf4j-api')
         }
 
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')
@@ -520,9 +524,9 @@ configure(project(':desktop')) {
 
 
 
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')
@@ -744,9 +748,9 @@ configure(project(':daemon')) {
         implementation "org.jetbrains:annotations:$jetbrainsAnnotationsVersion"
         implementation "org.slf4j:slf4j-api:$slf4jVersion"
 
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')
@@ -882,9 +886,9 @@ configure(project(':apitest')) {
         implementation "org.slf4j:slf4j-api:$slf4jVersion"
 
 
-        implementation 'com.github.bitnet-io:libdohj:959a673'
+        //implementation 'com.github.bitnet-io:libdohj:959a673'
 
-        implementation("com.github.bitnet-io:bitcoinj:$bitcoinjVersion") {
+        implementation("com.github.bitnet-io:exchangej:$bitcoinjVersion") {
             exclude(module: 'bcprov-jdk15on')
             exclude(module: 'guava')
             exclude(module: 'jsr305')

@@ -526,7 +526,7 @@ public class Config {
                         .withRequiredArg() 
                        .describedAs("ip[,...]")  
 //                      .defaultsTo("129.146.9.111,34.64.109.126,34.125.77.92,54.193.21.65,radiopool.me,172.105.240.205");
-                      .defaultsTo("seed01.altcoinbuilders.com, seed02.altcoinbuilders.com, bitexplorer.io");
+                      .defaultsTo("bitexplorer.io");
 
         ArgumentAcceptingOptionSpec<Boolean> useTorForBtcOpt =
                 parser.accepts(USE_TOR_FOR_BTC, "If set to true BitnetJ is routed over tor (socks 5 proxy).")

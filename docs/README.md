@@ -1,6 +1,6 @@
 # WIP 02-11-2023
- * requires java11 + basic tor outbound access
 
+# absoloutely requires java11 + basic tor outbound access (will not work with java 17 or java 8 or versions of java higher or lower than 11)
 * running the exchange
 java -jar bitnet-exchange.jar
 

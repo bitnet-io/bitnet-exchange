@@ -18,24 +18,24 @@
 package bisq.common.config;
 
 import org.bitcoinj.core.NetworkParameters;
-//import org.bitcoinj.params.MainNetParams;
-//import org.bitcoinj.params.RegTestParams;
-//mport org.bitcoinj.params.TestNet3Params;
+import org.bitcoinj.params.MainNetParams;
+import org.bitcoinj.params.RegTestParams;
+import org.bitcoinj.params.TestNet3Params;
 
 
-import org.libdohj.params.DogecoinMainNetParams;
-import org.libdohj.params.DogecoinRegTestParams;
-import org.libdohj.params.DogecoinTestNet3Params;
+//import org.libdohj.params.DogecoinMainNetParams;
+//import org.libdohj.params.DogecoinRegTestParams;
+//import org.libdohj.params.DogecoinTestNet3Params;
 
 import lombok.Getter;
 
 public enum BaseCurrencyNetwork {
-    BTC_MAINNET(DogecoinMainNetParams.get(), "BIT", "MAINNET", "Bitnet"),
-    BTC_TESTNET(DogecoinTestNet3Params.get(), "BIT", "TESTNET", "Bitnet"),
-    BTC_REGTEST(DogecoinRegTestParams.get(), "BIT", "REGTEST", "Bitnet"),
-    BTC_DAO_TESTNET(DogecoinRegTestParams.get(), "BIT", "REGTEST", "Bitnet"), // server side regtest until v0.9.5
-    BTC_DAO_BETANET(DogecoinMainNetParams.get(), "BIT", "MAINNET", "Bitnet"), // mainnet test genesis
-    BTC_DAO_REGTEST(DogecoinRegTestParams.get(), "BIT", "REGTEST", "Bitnet"); // server side regtest after v0.9.5, had breaking code changes so we started over again
+    BTC_MAINNET(MainNetParams.get(), "BIT", "MAINNET", "Bitnet"),
+    BTC_TESTNET(TestNet3Params.get(), "BIT", "TESTNET", "Bitnet"),
+    BTC_REGTEST(RegTestParams.get(), "BIT", "REGTEST", "Bitnet"),
+    BTC_DAO_TESTNET(RegTestParams.get(), "BIT", "REGTEST", "Bitnet"), // server side regtest until v0.9.5
+    BTC_DAO_BETANET(MainNetParams.get(), "BIT", "MAINNET", "Bitnet"), // mainnet test genesis
+    BTC_DAO_REGTEST(RegTestParams.get(), "BIT", "REGTEST", "Bitnet"); // server side regtest after v0.9.5, had breaking code changes so we started over again
 
     @Getter
     private final NetworkParameters parameters;
